@@ -1,0 +1,380 @@
+/*----------------------------------
+RESET (makes everything look consistent)
+-----------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*----------------------------------
+GENERAL PAGE STYLES
+-----------------------------------*/
+:root{
+    --font-stack: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    --brand: #1d75bc;
+    --brand-strong: #145c8c;
+    --bg: #f2f6f9;
+    --text: #222;
+    --muted: #6b7280;
+    --hero-overlay: rgba(0,0,0,0.45);
+}
+
+body {
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 10px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2 {
+    color: #1D75BC; /* Light Blue */
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+}
+
+/*----------------------------------
+NAVIGATION BAR (Desktop and Mobile)
+ - default styles for pages without hero
+ - .hero nav overrides for homepage placement
+-----------------------------------*/
+nav {
+    background: transparent;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+/* anchors (some pages use <nav><a>..</a></nav>, others may use ul/li)
+   provide rules that cover both structures */
+nav a,
+nav ul li a {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.08);
+    font-weight: 600;
+    display: inline-block;
+    transition: background 160ms ease, transform 120ms ease;
+}
+
+nav a:hover,
+nav ul li a:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-2px);
+}
+
+/* when nav lives inside the hero, place it on top of the image */
+.hero {
+    background-image: url("images/learners-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: white;
+    padding: 20px;
+}
+
+/* donate page specific hero background (higher contrast) */
+.hero.donate {
+    background-image: url("images/donate-bg.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* about page specific hero background */
+.hero.about {
+    background-image: url("images/school-bg.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* newsletter page specific hero background */
+.hero.newsletter {
+    background-image: url("images/newsletter-bg.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero nav {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.20);
+    padding: 6px 10px;
+    border-radius: 12px;
+    display: flex;
+    gap: 6px;
+    z-index: 3;
+}
+
+/*----------------------------------
+IMAGES (auto resize for phones/tablets)
+-----------------------------------*/
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Gallery grid and responsive image cropping */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    align-items: stretch;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.06));
+}
+
+.gallery-item { display: block; }
+
+
+/*----------------------------------
+BUTTONS
+-----------------------------------*/
+button, .btn {
+    padding: 10px 16px;
+    border: none;
+    background: #1d75bc;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+}
+
+button:hover, .btn:hover {
+    background: #145c8c;
+}
+
+/*----------------------------------
+FORMS
+-----------------------------------*/
+form {
+    max-width: 600px;
+    margin: 20px 0;
+    background: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+legend {
+    color: #1D75BC;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1d75bc;
+    box-shadow: 0 0 5px rgba(29, 117, 188, 0.3);
+}
+
+form button {
+    margin-top: 10px;
+}
+
+/*----------------------------------
+RESPONSIVE RULES (VERY IMPORTANT)
+-----------------------------------*/
+
+/* for screens smaller than 768px (phones */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+        font-size: 16px;
+    }
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin: 3px 0;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+h2 {
+        font-size: 22px;
+}
+
+.container {
+        padding: 5px;
+    }
+
+}
+
+/* for very small phones < 480px  */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    button, .btn {
+        width: 100%;
+    }
+}
+
+/* Accessibility helper */
+.sr-only {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; border: 0; padding: 0; margin: -1px;
+}
+
+/* Skip link (visible on keyboard focus) */
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;}
+.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:#fff;padding:0.5rem;border:1px solid #000;z-index:1000;}
+
+/* small animations for hero and nav */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1, .hero h2, .hero p { animation: fadeUp 520ms ease both; }
+.hero h2 { animation-delay: 80ms; }
+.hero p  { animation-delay: 140ms; }
+.hero nav a { animation: fadeUp 420ms ease both; animation-delay: 40ms; }
+
+nav a:focus,
+nav ul li a:focus {
+    outline: 3px solid rgba(29,117,188,0.22);
+    outline-offset: 4px;
+}
+
+/* mobile hamburger behavior */
+.nav-toggle {
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    gap: 6px;
+}
+
+@media (max-width: 768px) {
+    .hero nav {
+        position: absolute;
+        top: 52px;
+        left: 12px;
+        right: 12px;
+        padding: 8px;
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(0,0,0,0.26);
+        border-radius: 8px;
+        transition: max-height 240ms ease;
+    }
+
+    .hero nav.open {
+        max-height: 420px;
+    }
+
+    .hero nav a { width: 100%; text-align: center; padding: 10px 6px; }
+    .nav-toggle { display: flex; position: absolute; top: 12px; right: 18px; z-index: 5; }
+}
+
+.staff {
+    max-width: 800px;
+    margin: auto;
+}
+.staff-card {
+    background: #fafafa;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+}
+.staff-card h3 {
+    color: #1D75BC;
+    margin-bottom: 8px;
+}
+.role {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.hero h1,
+.hero h2,
+.hero p {
+    position: relative;
+    z-index: 4;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.55);
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://example.com/index.html</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://example.com/about.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://example.com/subjects.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://example.com/staff.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://example.com/gallery.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://example.com/admissions.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://example.com/donate.html</loc>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://example.com/newsletter.html</loc>
+    <priority>0.64</priority>
+  </url>
+</urlset>

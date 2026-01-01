@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <title>Donate - Moroka Primary School</title>
+        <meta name="description" content="Support Moroka Primary School — donate to help learners and improve school facilities.">
+        <meta property="og:title" content="Moroka Primary School — Donate">
+        <meta property="og:description" content="Support Moroka Primary School by donating to improve resources and learner support.">
+        <meta property="og:image" content="images/donate-bg.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <link rel="icon" href="favicon.svg" type="image/svg+xml">
+        <link rel="manifest" href="manifest.webmanifest">
+        <link rel="canonical" href="/donate.html">
+        <meta name="theme-color" content="#1d75bc">
+        <link rel="stylesheet" href="style.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f6f9;
+                color: #333;
+                margin: 0;
+                padding: 20px;
+            }
+
+            h1 {
+                color: #1d75bc; /* Light blue */
+            }
+
+            .donations-box {
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 500px;
+            }
+
+            .btn {
+                background-color: #1d75bc;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                margin-top: 15px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .btn {
+                background-color: #145c8c;
+            }
+
+        </style>
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+        <header>
+            <h1>Moroka Primary School</h1>
+        </header>
+
+        <div class="hero donate">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="staff.html">Staff</a>
+                <a href="subjects.html">Subjects</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="donate.html">Donate</a>
+                <a href="newsletter.html">Newsletter</a>
+            </nav>
+            <h2>Support Moroka Primary School</h2>
+            <p>Your contributions help us improve learning resources, support learners, and maintain school facilities.
+            Thank you for your generosity!</p>
+        </div>
+
+            <main id="main-content">
+            <div class="donations-box">
+                <h2>Banking Details</h2>
+
+                <p><strong>Bank Name:</strong> FNB</p>
+                <p><strong>Account Name:</strong> Moroka Junior Secondary School</p>
+                <p><strong>Account Type:</strong> Current Account</p>
+                <p><strong>Account Number:</strong> 62203801643</p>
+                <p><strong>Branch Code:</strong> 250655</p>
+                <p><strong>Reference:</strong> Donation - Your Name</p>
+
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <button class="btn" onclick="copyDetails()">Copy Banking Details</button>
+                    <button class="btn" onclick="openEmail()">Donate Now</button>
+                    <span id="copyMessage" style="display:none; color: green; font-weight:600;"></span>
+                </div>
+</main>
+            </div>
+
+            <script>
+                function copyDetails() {
+                    const details = `FNB\nAccount Name: Moroka Junior Secondary School\nAccount Type: Current Account\nAccount Number: 62203801643\nBranch Code: 250655\nReference: Donation - Your Name`;
+
+                    const msg = document.getElementById('copyMessage');
+                    navigator.clipboard.writeText(details).then(function() {
+                        msg.textContent = 'Banking details copied to clipboard.';
+                        msg.style.display = 'inline';
+                        setTimeout(() => { msg.style.display = 'none'; }, 3500);
+                    }).catch(function() {
+                        msg.textContent = 'Unable to copy automatically. Please copy the details manually.';
+                        msg.style.display = 'inline';
+                        setTimeout(() => { msg.style.display = 'none'; }, 4500);
+                    });
+                }
+
+                function openEmail() {
+                    const subject = encodeURIComponent('Donation to Moroka Primary School');
+                    const body = encodeURIComponent('Hello,%0D%0A%0D%0AI would like to make a donation. Please provide guidance on the next steps.\n\nThank you.');
+                    window.location.href = `mailto:donations@morokaps.edu?subject=${subject}&body=${body}`;
+                }
+            </script>
+        
+            <script src="scripts/site.js" defer></script>
+    </body>
+</html>

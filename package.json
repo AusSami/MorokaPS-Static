@@ -1,0 +1,21 @@
+{
+  "name": "morokaps-static",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "npx http-server -p 8080 -c-1",
+    "images:normalize": "node scripts/normalize-images.js",
+    "images:convert": "node scripts/convert-images.js",
+    "images:responsive": "node scripts/generate-responsive-images.js",
+    "icons:generate": "node scripts/generate-icons.js",
+    "images:prepare": "npm run images:normalize && npm run images:convert && npm run images:responsive && npm run icons:generate",
+    "check:assets": "node scripts/check-assets.js",
+    "audit:subjects": "npx lighthouse \"http://localhost:8080/subjects.html\" --output html --output-path reports/subjects-lighthouse.html --chrome-flags=\"--headless\"",
+    "audit:page": "npx lighthouse --chrome-flags=\"--headless\""
+  },
+  "devDependencies": {
+    "sharp": "^0.31.4",
+    "http-server": "^14.1.1",
+    "lighthouse": "^11.0.0"
+  }
+}

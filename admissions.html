@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <title>Admissions - Moroka Primary School</title>
+        <meta name="description" content="Admissions information and application form for Moroka Primary School.">
+        <meta property="og:title" content="Moroka Primary School — Admissions">
+        <meta property="og:description" content="Apply to Moroka Primary School or get admissions information.">
+        <meta property="og:image" content="images/school-bg.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <link rel="icon" href="favicon.svg" type="image/svg+xml">
+        <link rel="manifest" href="manifest.webmanifest">
+        <link rel="canonical" href="/admissions.html">
+        <meta name="theme-color" content="#1d75bc">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+
+        <header>
+            <h1>Moroka Primary School</h1>
+        </header>
+
+        <section class="hero">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="staff.html">Staff</a>
+                <a href="subjects.html">Subjects</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="donate.html">Donate</a>
+                <a href="newsletter.html">Newsletter</a>
+            </nav>
+            <h1>Admissions</h1>
+            <p>Welcome to Moroka Primary School - where learning begins.</p>
+        </section>
+        <main id="main-content">
+        <section>
+            <h2>Admissions Form</h2>
+            <p>We welcome inquiries from parents and guardians interested in enrolling their children at Moroka Primary School. Please fill out the form below and submit your application.</p>
+            
+            <form id="admissionsForm" onsubmit="submitForm(event)">
+                <fieldset>
+                    <legend>Parent/Guardian Information</legend>
+                    <div class="form-group">
+                        <label for="parentName">Parent/Guardian Name:</label>
+                        <input type="text" id="parentName" name="parentName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="parentEmail">Email Address:</label>
+                        <input type="email" id="parentEmail" name="parentEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="parentPhone">Phone Number:</label>
+                        <input type="tel" id="parentPhone" name="parentPhone" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Student Information</legend>
+                    <div class="form-group">
+                        <label for="studentName">Student Name:</label>
+                        <input type="text" id="studentName" name="studentName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentDOB">Date of Birth:</label>
+                        <input type="date" id="studentDOB" name="studentDOB" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentGrade">Grade to Enroll:</label>
+                        <select id="studentGrade" name="studentGrade" required>
+                            <option value="">-- Select Grade --</option>
+                            <option value="Grade 1">Grade 1</option>
+                            <option value="Grade 2">Grade 2</option>
+                            <option value="Grade 3">Grade 3</option>
+                            <option value="Grade 4">Grade 4</option>
+                            <option value="Grade 5">Grade 5</option>
+                            <option value="Grade 6">Grade 6</option>
+                            <option value="Grade 7">Grade 7</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Additional Information</legend>
+                    <div class="form-group">
+                        <label for="message">Comments/Special Requests:</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Any additional information you'd like to share..."></textarea>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="btn">Submit Application</button>
+                <span id="formMessage" style="display:none; margin-left: 15px; color: green; font-weight:600;"></span>
+            </form>
+        </section>
+</main>
+
+        <script>
+            function submitForm(event) {
+                event.preventDefault();
+                
+                const parentName = document.getElementById('parentName').value;
+                const parentEmail = document.getElementById('parentEmail').value;
+                const studentName = document.getElementById('studentName').value;
+                const studentGrade = document.getElementById('studentGrade').value;
+                
+                const msg = document.getElementById('formMessage');
+                msg.textContent = `Thank you, ${parentName}! Your application for ${studentName} (${studentGrade}) has been submitted. We will contact you at ${parentEmail} soon.`;
+                msg.style.display = 'inline';
+                
+                document.getElementById('admissionsForm').reset();
+                
+                setTimeout(() => { msg.style.display = 'none'; }, 5000);
+            }
+        </script>
+
+        <footer>
+            © 2025 Moroka Primary School - All Rights Reserved
+        </footer>
+
+        <script src="scripts/site.js" defer></script>
+    </body>
+</html>

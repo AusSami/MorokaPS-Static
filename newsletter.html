@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <title>Newsletter - Moroka Primary School</title>
+        <meta name="description" content="Subscribe to the Moroka Primary School newsletter for news, events and updates.">
+        <meta property="og:title" content="Moroka Primary School — Newsletter">
+        <meta property="og:description" content="Subscribe for school news and updates.">
+        <meta property="og:image" content="images/newsletter-bg.jpeg">
+        <meta name="twitter:card" content="summary_large_image">
+        <link rel="icon" href="favicon.svg" type="image/svg+xml">
+        <link rel="manifest" href="manifest.webmanifest">
+        <link rel="canonical" href="/newsletter.html">
+        <meta name="theme-color" content="#1d75bc">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+
+        <header>
+            <h1>Moroka Primary School</h1>
+        </header>
+
+        <div class="hero newsletter">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="staff.html">Staff</a>
+                <a href="subjects.html">Subjects</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="donate.html">Donate</a>
+                <a href="newsletter.html">Newsletter</a>
+            </nav>
+            <h2>Newsletter Signup</h2>
+        </div>
+
+        <main id="main-content">
+        <section>
+            <p>Stay informed about school news, events, and updates. Subscribe to our newsletter today!</p>
+            
+            <form id="newsletterForm" onsubmit="subscribeNewsletter(event)">
+                <label for="email">Enter your email address:</label>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            
+            <p id="message" style="display:none; color: green; margin-top: 10px;"></p>
+</main>
+        </section>
+
+        <script>
+            function subscribeNewsletter(event) {
+                event.preventDefault();
+                const email = document.getElementById('email').value;
+                const messageBox = document.getElementById('message');
+                
+                messageBox.textContent = "Thank you for subscribing! You will receive updates about school news and events.";
+                messageBox.style.display = "block";
+                document.getElementById('newsletterForm').reset();
+            }
+        </script>
+
+        <footer>
+            © 2025 Moroka Primary School - All Rights Reserved
+        </footer>
+
+        <script src="scripts/site.js" defer></script>
+
+    </body>
